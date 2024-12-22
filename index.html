@@ -20,6 +20,20 @@
             padding: 10px 15px;
             text-align: center;
         }
+        nav {
+            background: #005BB5;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
         main {
             padding: 20px;
             max-width: 800px;
@@ -30,6 +44,18 @@
         }
         h1, h2, h3 {
             color: #0078D7;
+        }
+        .contribution-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #0078D7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contribution-buttons button:hover {
+            background-color: #005BB5;
         }
         footer {
             text-align: center;
@@ -44,8 +70,13 @@
     <header>
         <h1>Transparent Allocation System</h1>
     </header>
+    <nav>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#make-a-contribution">Make a Contribution</a>
+        <a href="#faq">FAQ</a>
+    </nav>
     <main>
-        <h2>How This System Works</h2>
+        <h2 id="how-it-works">How This System Works</h2>
 
         <h3>Purpose</h3>
         <p>
@@ -60,33 +91,42 @@
             <li><strong>Receive Rewards:</strong> Beneficiaries receive their share of the total pool, minus minimal operational costs.</li>
         </ol>
 
-        <h3>Key Points</h3>
-        <ul>
-            <li><strong>Limited Risk:</strong> You can only lose the amount you contribute.</li>
-            <li><strong>Clear Allocation:</strong> The probability of being a beneficiary and expected returns are displayed before you join.</li>
-            <li><strong>Transparent Process:</strong> All operations are handled by tamper-proof smart contracts.</li>
-        </ul>
+        <h2 id="make-a-contribution">Make a Contribution</h2>
+        <div class="contribution-buttons">
+            <p>Select a contribution amount:</p>
+            <button onclick="alert('You selected $10')">$10</button>
+            <button onclick="alert('You selected $50')">$50</button>
+            <button onclick="alert('You selected $100')">$100</button>
+        </div>
+        <div>
+            <p>Or enter a custom amount:</p>
+            <input type="number" id="customAmount" placeholder="Enter amount" min="1">
+            <button onclick="submitCustomAmount()">Submit</button>
+        </div>
 
-        <h3>Example</h3>
-        <p>
-            <strong>Group Setup:</strong> 3 beneficiaries out of 5 participants.<br>
-            <strong>Total Pool:</strong> $500.<br>
-            <strong>Beneficiary’s Share:</strong> ~$166.67, minus $1 for operational costs.
-        </p>
+        <script>
+            function submitCustomAmount() {
+                const amount = document.getElementById('customAmount').value;
+                if (amount) {
+                    alert(`You entered $${amount}`);
+                } else {
+                    alert('Please enter a valid amount');
+                }
+            }
+        </script>
 
-        <h3>Why Choose This System Over Trading?</h3>
-        <ul>
-            <li>No market manipulation or hidden fees.</li>
-            <li>Simple, transparent, and predictable.</li>
-            <li>No need for complex analysis or charts.</li>
-        </ul>
+        <h2 id="faq">FAQ</h2>
+        <h3>What is the purpose of this system?</h3>
+        <p>This system provides a transparent way to allocate funds among participants based on predefined rules.</p>
 
-        <h3>How to Join</h3>
-        <ol>
-            <li>Select a group.</li>
-            <li>Contribute your amount.</li>
-            <li>Wait for the results—your allocation and expected returns are calculated automatically.</li>
-        </ol>
+        <h3>How are winners selected?</h3>
+        <p>Winners are chosen automatically by the system once all participants have joined.</p>
+
+        <h3>Is there a risk?</h3>
+        <p>You can only lose the amount you contribute, and all terms are displayed upfront.</p>
+
+        <h3>How do I know my contribution is safe?</h3>
+        <p>All operations are managed by secure and tamper-proof smart contracts.</p>
     </main>
     <footer>
         <p>&copy; 2024 Transparent Allocation System. All rights reserved.</p>
